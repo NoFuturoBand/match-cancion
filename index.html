@@ -148,12 +148,9 @@ showQuestion();
 }
 
 
-function showResult(){
+  function showResult(){
 
-// Respuestas emocionales
 let emotionalAnswers = answers.slice(0,5);
-
-// Respuesta desempate
 let tieBreaker = answers[5];
 
 let bestScore = -1;
@@ -188,7 +185,7 @@ bestSongs.push(song.name);
 
 });
 
-// Resolver empates
+// Resolver empate con mezcla
 
 let finalSong;
 
@@ -199,11 +196,17 @@ finalSong = bestSongs[0];
 }
 else{
 
-// usar desempate
+// índice variable según respuestas
 
-let index = tieBreaker % bestSongs.length;
+let sumAnswers =
+answers.reduce((a,b)=>a+b,0);
 
-finalSong = bestSongs[index];
+let index =
+(sumAnswers + tieBreaker) %
+bestSongs.length;
+
+finalSong =
+bestSongs[index];
 
 }
 
