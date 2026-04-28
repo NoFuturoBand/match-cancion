@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Match de Canción</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 80px;
+}
+
+button {
+    font-size: 20px;
+    padding: 15px 30px;
+    margin: 10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="app">
+
+<h2>Vamos a encontrar la canción que mejor te describe</h2>
+
+<button onclick="startQuiz()">Comenzar</button>
+
+</div>
+
+<script>
+
+let step = 0;
+let answers = [];
+
+const questions = [
+"¿Aún te afecta emocionalmente una relación que terminó?",
+"¿Sientes que has tenido que aceptar situaciones que no salieron como esperabas?",
+"¿Alguna vez alguien en quien confiabas te falló profundamente?",
+"¿Sientes que muchas cosas en tu vida no salen como quisieras?",
+"¿Evitas algunas situaciones por miedo a lo que podría pasar?",
+"Cuando algo duele, normalmente tú lo enfrentas?"
+];
+
+const songs = [
+"Pongo en adopción a mi perro",
+"Detrás de los cristales",
+"Para mí",
+"No aprendí a bailar",
+"Demasiado viejos para cantar rap por eso cantamos punk",
+"Pánico al pogo",
+"Es lo que hay",
+"Pésimo servicio",
+"Tal vez",
+"Suficiente"
+];
+
+function startQuiz() {
+step = 0;
+answers = [];
+showQuestion();
+}
+
+function showQuestion() {
+
+if(step < questions.length) {
+
+document.getElementById("app").innerHTML = `
+<h2>${questions[step]}</h2>
+
+<button onclick="answer(1)">Sí</button>
+<button onclick="answer(0)">No</button>
+`;
+
+} else {
+
+showResult();
+
+}
+
+}
+
+function answer(value) {
+
+answers.push(value);
+step++;
+
+showQuestion();
+
+}
+
+function showResult() {
+
+// Por ahora resultado aleatorio
+// Luego pondremos lógica real
+
+let randomSong =
+songs[Math.floor(Math.random() * songs.length)];
+
+document.getElementById("app").innerHTML = `
+<h2>Tu canción es:</h2>
+
+<h1>${randomSong}</h1>
+
+<button onclick="startQuiz()">
+Intentar de nuevo
+</button>
+`;
+
+}
+
+</script>
+
+</body>
+</html>
