@@ -5,17 +5,20 @@
 <title>Match de Canción</title>
 
 <style>
+
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 80px;
+font-family: Arial, sans-serif;
+text-align: center;
+margin-top: 80px;
 }
 
 button {
-    font-size: 20px;
-    padding: 15px 30px;
-    margin: 10px;
+font-size: 20px;
+padding: 15px 30px;
+margin: 10px;
+cursor: pointer;
 }
+
 </style>
 
 </head>
@@ -44,37 +47,89 @@ const questions = [
 "Cuando algo duele, normalmente tú lo enfrentas?"
 ];
 
-const songs = [
-"Pongo en adopción a mi perro",
-"Detrás de los cristales",
-"Para mí",
-"No aprendí a bailar",
-"Demasiado viejos para cantar rap por eso cantamos punk",
-"Pánico al pogo",
-"Es lo que hay",
-"Pésimo servicio",
-"Tal vez",
-"Suficiente"
-];
+// Pesos emocionales
+const weights = [5,4,3,2,1];
 
-function startQuiz() {
-step = 0;
-answers = [];
-showQuestion();
+// Perfil emocional de canciones
+const songs = [
+
+{
+name:"Pongo en adopción a mi perro",
+profile:[1,0,0,1,0]
+},
+
+{
+name:"Detrás de los cristales",
+profile:[0,1,1,1,0]
+},
+
+{
+name:"Para mí",
+profile:[0,1,1,1,0]
+},
+
+{
+name:"No aprendí a bailar",
+profile:[1,1,0,1,0]
+},
+
+{
+name:"Demasiado viejos para cantar rap por eso cantamos punk",
+profile:[0,1,0,1,0]
+},
+
+{
+name:"Pánico al pogo",
+profile:[0,0,0,0,1]
+},
+
+{
+name:"Es lo que hay",
+profile:[1,1,0,1,0]
+},
+
+{
+name:"Pésimo servicio",
+profile:[1,1,0,1,0]
+},
+
+{
+name:"Tal vez",
+profile:[1,1,0,0,1]
+},
+
+{
+name:"Suficiente",
+profile:[1,1,1,1,1]
 }
 
-function showQuestion() {
+];
 
-if(step < questions.length) {
+function startQuiz(){
+
+step = 0;
+answers = [];
+
+showQuestion();
+
+}
+
+function showQuestion(){
+
+if(step < questions.length){
 
 document.getElementById("app").innerHTML = `
+
 <h2>${questions[step]}</h2>
 
 <button onclick="answer(1)">Sí</button>
+
 <button onclick="answer(0)">No</button>
+
 `;
 
-} else {
+}
+else{
 
 showResult();
 
@@ -82,31 +137,61 @@ showResult();
 
 }
 
-function answer(value) {
+function answer(value){
 
 answers.push(value);
+
 step++;
 
 showQuestion();
 
 }
 
-function showResult() {
+function showResult(){
 
-// Por ahora resultado aleatorio
-// Luego pondremos lógica real
+// Tomamos primeras 5 respuestas emocionales
+let emotionalAnswers = answers.slice(0,5);
 
-let randomSong =
-songs[Math.floor(Math.random() * songs.length)];
+let bestScore = -1;
+let bestSong = "";
+
+// Evaluamos cada canción
+
+songs.forEach(song => {
+
+let score = 0;
+
+for(let i=0;i<5;i++){
+
+score += emotionalAnswers[i] *
+song.profile[i] *
+weights[i];
+
+}
+
+if(score > bestScore){
+
+bestScore = score;
+bestSong = song.name;
+
+}
+
+});
+
+// Mostrar resultado
 
 document.getElementById("app").innerHTML = `
+
 <h2>Tu canción es:</h2>
 
-<h1>${randomSong}</h1>
+<h1>${bestSong}</h1>
 
 <button onclick="startQuiz()">
+
 Intentar de nuevo
+
 </button>
+
 `;
 
 }
