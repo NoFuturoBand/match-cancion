@@ -147,15 +147,19 @@ showQuestion();
 
 }
 
+
 function showResult(){
 
-// Tomamos primeras 5 respuestas emocionales
+// Respuestas emocionales
 let emotionalAnswers = answers.slice(0,5);
 
-let bestScore = -1;
-let bestSong = "";
+// Respuesta desempate
+let tieBreaker = answers[5];
 
-// Evaluamos cada canción
+let bestScore = -1;
+let bestSongs = [];
+
+// Calcular puntajes
 
 songs.forEach(song => {
 
@@ -172,11 +176,36 @@ weights[i];
 if(score > bestScore){
 
 bestScore = score;
-bestSong = song.name;
+bestSongs = [song.name];
+
+}
+
+else if(score === bestScore){
+
+bestSongs.push(song.name);
 
 }
 
 });
+
+// Resolver empates
+
+let finalSong;
+
+if(bestSongs.length === 1){
+
+finalSong = bestSongs[0];
+
+}
+else{
+
+// usar desempate
+
+let index = tieBreaker % bestSongs.length;
+
+finalSong = bestSongs[index];
+
+}
 
 // Mostrar resultado
 
@@ -184,7 +213,7 @@ document.getElementById("app").innerHTML = `
 
 <h2>Tu canción es:</h2>
 
-<h1>${bestSong}</h1>
+<h1>${finalSong}</h1>
 
 <button onclick="startQuiz()">
 
@@ -195,6 +224,7 @@ Intentar de nuevo
 `;
 
 }
+
 
 </script>
 
