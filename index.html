@@ -119,13 +119,12 @@ function showQuestion(){
 if(step < questions.length){
 
 document.getElementById("app").innerHTML = `
-
 <h2>${questions[step]}</h2>
 
 <button onclick="answer(1)">Sí</button>
-
 <button onclick="answer(0)">No</button>
 
+${getHistoryHTML()}
 `;
 
 }
@@ -147,6 +146,28 @@ showQuestion();
 
 }
 
+  function getHistoryHTML(){
+
+let history = "<div style='margin-top:30px; text-align:left; max-width:600px; margin-left:auto; margin-right:auto;'>";
+
+for(let i = 0; i < answers.length; i++){
+
+let response = answers[i] === 1 ? "Sí" : "No";
+
+history += `
+<p style="font-size:14px; margin:5px 0;">
+<b>${questions[i]}</b><br>
+Respuesta: ${response}
+</p>
+`;
+
+}
+
+history += "</div>";
+
+return history;
+
+}
 
   function showResult(){
 
