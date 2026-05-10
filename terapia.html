@@ -338,10 +338,51 @@ RESPONSIVE
 
         display:none;
 
+
+        
+
     }
 
     .mobile-menu{
 
+    /* MOBILE DROPDOWN */
+    
+    .mobile-dropdown{
+    
+        display:none;
+    
+        flex-direction:column;
+    
+        border-top:1px solid #ddd;
+    
+        background:white;
+    
+    }
+    
+    /* DROPDOWN LINKS */
+    
+    .mobile-dropdown a{
+    
+        padding:18px 20px;
+    
+        text-decoration:none;
+    
+        color:black;
+    
+        border-bottom:1px solid #eee;
+    
+        font-weight:bold;
+    
+    }
+    
+    /* SHOW MENU */
+    
+    .mobile-dropdown.show{
+    
+        display:flex;
+    
+    }
+        
         display:block;
 
     }
@@ -402,12 +443,15 @@ p a:hover{
 <!-- =========================
 HEADER
 ========================= -->
+<!-- =========================
+HEADER
+========================= -->
 
 <header>
 
 <div class="header-content">
 
-    <!-- TEXTO EDITABLE: LOGO -->
+    <!-- LOGO -->
     <div class="logo">
         NO FUTURO
     </div>
@@ -415,22 +459,42 @@ HEADER
     <!-- MENU DESKTOP -->
     <nav class="desktop-menu">
 
-        <!-- LINK EDITABLE -->
-        <a href="https://www.nofuturo.com">
-            SITIO PRINCIPAL
+        <a href="home.html">
+            HOME
         </a>
 
-        <!-- LINK EDITABLE -->
-        <a href="https://www.nofuturo.com/quiz">
+        <a href="terapia.html">
+            TERAPIA
+        </a>
+
+        <a href="quiz.html">
             QUIZ
         </a>
 
     </nav>
 
-    <!-- MOBILE MENU ICON -->
-    <div class="mobile-menu">
+    <!-- MOBILE BUTTON -->
+    <div class="mobile-menu" onclick="toggleMenu()">
         ☰
     </div>
+
+</div>
+
+<!-- MOBILE DROPDOWN -->
+
+<div id="mobileDropdown" class="mobile-dropdown">
+
+    <a href="home.html">
+        HOME
+    </a>
+
+    <a href="terapia.html">
+        TERAPIA
+    </a>
+
+    <a href="quiz.html">
+        QUIZ
+    </a>
 
 </div>
 
@@ -626,5 +690,25 @@ CONTACT
 
 </main>
 
+<script>
+
+/* TOGGLE MOBILE MENU */
+
+function toggleMenu(){
+
+    const menu =
+    document.getElementById(
+        "mobileDropdown"
+    );
+
+    menu.classList.toggle("show");
+
+}
+
+</script>
+
+
+
+    
 </body>
 </html>
