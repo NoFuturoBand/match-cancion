@@ -1,1 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NO FUTURO</title>
+
+<style>
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* BODY */
+body{
+
+    background:#ffffff;
+    color:#000000;
+
+    font-family: Helvetica, Arial, sans-serif;
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+}
+
+/* CONTAINER */
+.container{
+
+    width:100%;
+    max-width:500px;
+
+    text-align:center;
+
+}
+
+/* LOGO PLACEHOLDER */
+.logo{
+
+    width:120px;
+    height:120px;
+
+    border:2px solid black;
+
+    margin:0 auto 25px auto;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:14px;
+
+}
+
+/* TITLE */
+h1{
+
+    font-size:42px;
+    letter-spacing:2px;
+
+    margin-bottom:10px;
+
+}
+
+/* SUBTITLE */
+.subtitle{
+
+    font-size:16px;
+    line-height:1.5;
+
+    margin-bottom:40px;
+
+}
+
+/* LINKS */
+.link-button{
+
+    display:block;
+
+    width:100%;
+
+    padding:18px;
+
+    margin-bottom:16px;
+
+    border:2px solid black;
+
+    text-decoration:none;
+
+    color:black;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    transition:0.2s;
+
+}
+
+/* HOVER */
+.link-button:hover{
+
+    background:black;
+    color:white;
+
+}
+
+/* MOBILE */
+@media(max-width:480px){
+
+    h1{
+        font-size:34px;
+    }
+
+    .subtitle{
+        font-size:15px;
+    }
+
+    .link-button{
+        font-size:17px;
+        padding:16px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        LOGO
+    </div>
+
+    <h1>NO FUTURO</h1>
+
+    <p class="subtitle">
+        Punk triste desde Bogotá.
+    </p>
+
+    <a class="link-button" href="#">
+        ESCUCHAR EN SPOTIFY
+    </a>
+
+    <a class="link-button" href="#">
+        VER VIDEOCLIP
+    </a>
+
+    <a class="link-button" href="#">
+        INSTAGRAM
+    </a>
+
+    <a class="link-button" href="#">
+        YOUTUBE
+    </a>
+
+    <a class="link-button" href="quiz.html">
+        HACER EL QUIZ
+    </a>
+
+</div>
+
+</body>
+</html>
