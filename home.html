@@ -180,6 +180,45 @@ h1{
 
 }
 
+
+/* POPUP */
+
+#popup{
+
+    position:fixed;
+
+    bottom:30px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:#ff0000;
+
+    color:white;
+
+    padding:14px 22px;
+
+    border-radius:8px;
+
+    font-size:14px;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:0.3s;
+
+}
+
+/* SHOW */
+
+#popup.show{
+
+    opacity:1;
+
+}
+    
     
 </style>
 
@@ -211,9 +250,9 @@ h1{
         <img src="assets/tik-tok.png" class="social-icon">
     </a>
 
-    <a href="mailto:nofuturoband@gmail.com">
-        <img src="assets/mail.png" class="social-icon">
-    </a>
+ <a href="#" onclick="copyEmail()">
+    <img src="assets/mail.png" class="social-icon">
+</a>
 
 </div>
 
@@ -240,5 +279,39 @@ h1{
 
 </div>
 
+<div id="popup">
+    nofuturoband@gmail.com copiado
+</div>
+
+<script>
+
+function copyEmail(){
+
+    // Copiar correo
+
+    navigator.clipboard.writeText(
+        "nofuturoband@gmail.com"
+    );
+
+    // Mostrar popup
+
+    const popup =
+    document.getElementById("popup");
+
+    popup.classList.add("show");
+
+    // Ocultar popup
+
+    setTimeout(() => {
+
+        popup.classList.remove("show");
+
+    }, 2000);
+
+}
+
+</script>
+    
+    
 </body>
 </html>
