@@ -21,8 +21,8 @@
 /* BODY */
 body{
 
-    background:#ffffff;
-    color:#000000;
+    background:#000000;
+    color:#ffffff;
 
     font-family: Helvetica, Arial, sans-serif;
 
@@ -32,7 +32,7 @@ body{
     justify-content:center;
     align-items:center;
 
-    padding:20px;
+    padding:25px;
 
 }
 
@@ -40,20 +40,20 @@ body{
 .container{
 
     width:100%;
-    max-width:500px;
+    max-width:520px;
 
     text-align:center;
 
 }
 
-/* LOGO PLACEHOLDER */
+/* LOGO */
 .logo{
 
-    width:180px;
+    width:220px;
 
-    max-width:70%;
+    max-width:80%;
 
-    margin:0 auto 30px auto;
+    margin:0 auto 35px auto;
 
     display:block;
 
@@ -62,43 +62,51 @@ body{
 /* TITLE */
 h1{
 
-    font-size:42px;
-    letter-spacing:2px;
+    font-size:48px;
 
-    margin-bottom:10px;
+    letter-spacing:3px;
+
+    margin-bottom:12px;
+
+    font-weight:bold;
 
 }
 
 /* SUBTITLE */
 .subtitle{
 
-    font-size:16px;
-    line-height:1.5;
+    font-size:17px;
 
-    margin-bottom:40px;
+    line-height:1.6;
+
+    color:#cccccc;
+
+    margin-bottom:45px;
 
 }
 
-/* LINKS */
+/* BUTTONS */
 .link-button{
 
     display:block;
 
     width:100%;
 
-    padding:18px;
+    padding:20px;
 
-    margin-bottom:16px;
+    margin-bottom:18px;
 
-    border:2px solid black;
+    border:2px solid white;
 
     text-decoration:none;
 
-    color:black;
+    color:white;
 
     font-size:18px;
 
     font-weight:bold;
+
+    letter-spacing:1px;
 
     transition:0.2s;
 
@@ -107,7 +115,10 @@ h1{
 /* HOVER */
 .link-button:hover{
 
-    background:black;
+    background:#ff0000;
+
+    border-color:#ff0000;
+
     color:white;
 
 }
@@ -116,16 +127,16 @@ h1{
 @media(max-width:480px){
 
     h1{
-        font-size:34px;
+        font-size:38px;
     }
 
     .subtitle{
-        font-size:15px;
+        font-size:16px;
     }
 
     .link-button{
         font-size:17px;
-        padding:16px;
+        padding:18px;
     }
 
 }
